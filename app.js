@@ -13,7 +13,7 @@ app.put('/', (req, res) => {
 app.get('/:a', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Time out error' + req.a);
+    res.end('Time out error' + req.params.a);
 });
 
 var server = app.listen(8081, function () {
