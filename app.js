@@ -3,17 +3,17 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors());
-app.put('/', (req, res) => {
+app.all('/', (req, res) => {
     setTimeout(() => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         res.end('Time out error');
     }, 10000);
 });
-app.get('/:a', (req, res) => {
+app.all('/notimeout/:a', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Time out error' + req.params.a);
+    res.end('No time out with ' + req.params.a);
 });
 
 var server = app.listen(8081, function () {
