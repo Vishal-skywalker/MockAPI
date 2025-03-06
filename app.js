@@ -16,8 +16,8 @@ app.all('/notimeout/:a', (req, res) => {
     res.end('No time out with ' + req.params.a);
 });
 
-var server = app.listen(8081, function () {
+const port = process.env.PORT || 3000
+var server = app.listen(port, function () {
     var host = server.address().address
-    var port = server.address().port
     console.log("Example app listening at http://%s:%s", host, port)
 })
